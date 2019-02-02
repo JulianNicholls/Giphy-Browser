@@ -22,15 +22,27 @@ body {
   padding: 1em;
 }
 
+input {
+  font-size: 1em;
+  padding: 0.3em 0.5em;
+}
+
 header {
+  align-items: center;
   background: #555;
   color: #ddd;
   display: flex;
-  padding: 1em;
-}
+  height: 4rem;  
+  padding: 0 1em;
 
-header #product {
-  color: #fff;
-  flex: 3;
-  font-size: 1.2rem;
+  #product {
+    color: #fff;
+    flex: 5;
+    font-size: 1.2rem;
+  }
+
+  .section {
+    cursor: pointer;
+    flex: 1;
+  }
 }
