@@ -23,7 +23,7 @@ body {
 }
 
 input {
-  font-size: 1em;
+  font-size: 1rem;
   padding: 0.3em 0.5em;
 }
 
@@ -37,12 +37,31 @@ header {
 
   #product {
     color: #fff;
-    flex: 5;
-    font-size: 1.2rem;
+    flex: 1;
+    font-size: 1.4rem;
+  }
+
+  .img-span {
+    flex: 4;
   }
 
   .section {
     cursor: pointer;
     flex: 1;
+  }
+
+  button.search {
+    font-size: 1rem;
+    padding: 0.3em;
+  }
+}
+
+.trending-list {
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  img {
+    width: 100%;
   }
 }

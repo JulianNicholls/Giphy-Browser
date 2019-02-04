@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header';
+import Trending from './components/Trending';
 
 import './styles/App.scss';
-
-const Trending = () => (
-  <div>
-    <h1>Trending GIFs</h1>
-  </div>
-);
 
 const Random = () => (
   <div>
