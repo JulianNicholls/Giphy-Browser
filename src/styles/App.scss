@@ -27,6 +27,11 @@ input {
   padding: 0.3em 0.5em;
 }
 
+button {
+  font-size: 1rem;
+  padding: 0.3em;
+}
+
 header {
   align-items: center;
   background: #555;
@@ -49,11 +54,6 @@ header {
     cursor: pointer;
     flex: 1;
   }
-
-  button.search {
-    font-size: 1rem;
-    padding: 0.3em;
-  }
 }
 
 .trending-list {
@@ -63,5 +63,25 @@ header {
 
   img {
     width: 100%;
+  }
+}
+
+.random {
+  img {
+    display: block;
+    margin: 1em auto;
+  }
+
+  .button-holder {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1em;
+  }
+
+  button {
+    background: #333;
+    color: #eee;
+    display: block;
+    padding: 0.5em;
   }
 }

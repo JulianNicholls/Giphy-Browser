@@ -14,8 +14,6 @@ export class Trending extends Component {
       );
       const json = await response.json();
 
-      console.log(json);
-
       this.setState({ gifs: json });
     } catch (err) {
       console.error(err);

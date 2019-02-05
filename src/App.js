@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import Trending from './components/Trending';
+import Random from './components/Random';
 
 import './styles/App.scss';
-
-const Random = () => (
-  <div>
-    <h1>Random GIF</h1>
-  </div>
-);
 
 const SearchResults = () => (
   <div>
