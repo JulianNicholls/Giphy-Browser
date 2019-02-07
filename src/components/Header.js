@@ -27,6 +27,9 @@ const Header = ({ chooseTrending, chooseRandom, search }) => {
           placeholder="search"
           value={searchText}
           onChange={evt => setSearchText(evt.target.value)}
+          onKeyUp={evt => {
+            if (evt.key === 'Enter') search(evt.target.value);
+          }}
         />
         &nbsp;
         <button className="search" onClick={() => search(searchText)}>
