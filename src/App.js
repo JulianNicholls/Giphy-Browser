@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Header from './components/Header';
 import Trending from './components/Trending';
@@ -6,41 +6,38 @@ import Random from './components/Random';
 
 import './styles/App.scss';
 
-const SearchResults = () => (
+const SearchResults = ({ searchText }) => (
   <div>
     <h1>Search Results</h1>
+    <h3>Search: {searchText}</h3>
   </div>
 );
 
-class App extends Component {
-  state = {
-    page: 'trending',
-    searchText: '',
+const App = () => {
+  const [page, setPage] = useState('trending');
+  const [searchText, setSearchText] = useState('');
+
+  const chooseRandom = () => setPage('random');
+  const chooseTrending = () => setPage('trending');
+  const search = searchText => {
+    setSearchText(searchText);
+    setPage('searchResults');
   };
 
-  chooseRandom = () => this.setState(() => ({ page: 'random' }));
-  chooseTrending = () => this.setState(() => ({ page: 'trending' }));
-  search = searchText =>
-    this.setState(() => ({ page: 'searchResults', searchText }));
-
-  render() {
-    const { page, searchText } = this.state;
-
-    return (
-      <div>
-        <Header
-          chooseRandom={this.chooseRandom}
-          chooseTrending={this.chooseTrending}
-          search={this.search}
-        />
-        <div className="container">
-          {page === 'trending' && <Trending />}
-          {page === 'random' && <Random />}
-          {page === 'searchResults' && <SearchResults searchText={searchText} />}
-        </div>
+  return (
+    <div>
+      <Header
+        chooseRandom={chooseRandom}
+        chooseTrending={chooseTrending}
+        search={search}
+      />
+      <div className="container">
+        {page === 'trending' && <Trending />}
+        {page === 'random' && <Random />}
+        {page === 'searchResults' && <SearchResults searchText={searchText} />}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
