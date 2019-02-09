@@ -30,9 +30,7 @@ const Random = () => {
   };
 
   const slideshow = () => {
-    const showHandle = setInterval(loadRandom, 5000);
-
-    setHandle(showHandle);
+    setHandle(setInterval(loadRandom, 5000));
   };
 
   const image = gif.data;
@@ -47,7 +45,9 @@ const Random = () => {
             <img src={image.images.original.url} alt={image.title} />
           </div>
           <div className="button-holder">
-            <button onClick={loadRandom}>Another!</button>
+            <button disabled={handle !== 0} onClick={loadRandom}>
+              Another!
+            </button>
             <button disabled={handle !== 0} onClick={slideshow}>
               Slide show
             </button>

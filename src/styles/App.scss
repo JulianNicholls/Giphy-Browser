@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
 
+$body-bg: #eee;
+$body-text: #333;
+
+$header-bg: #444;
+$header-text: #ddd;
+$header-product: #fff;
+$header-hover: #fff;
+
+$button-holder-bg: #ddd;
+$button-bg: #333;
+$button-text: #eee;
+$button-disabled-bg: #ccc;
+$button-disabled-text: #999;
+
+
 *,
 *::before,
 *::after {
@@ -7,8 +22,8 @@
 }
 
 body {
-  background: #eee;
-  color: #444;
+  background: $body-bg;
+  color: $body-text;
   font-family: Raleway, sans-serif;
   margin: 0;
   padding: 0;
@@ -43,14 +58,14 @@ h1 {
 
 header {
   align-items: center;
-  background: #444;
-  color: #ddd;
+  background: $header-bg;
+  color: $header-text;
   display: flex;
   height: 4rem;  
   padding: 0 1em;
 
   #product {
-    color: #fff;
+    color: $header-product;
     flex: 1;
     font-size: 1.4rem;
   }
@@ -64,7 +79,7 @@ header {
     flex: 1;
 
     &:hover {
-      color: #fff;
+      color: $header-hover;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
   }
@@ -91,7 +106,7 @@ header {
   }
 
   .button-holder {
-    background: #ddd;
+    background: $button-holder-bg;
     display: flex;
     justify-content: space-evenly;
     margin: 1em 0 0 0;
@@ -99,14 +114,14 @@ header {
   }
 
   button {
-    background: #333;
-    color: #eee;
+    background: $button-bg;
+    color: $button-text;
     display: block;
     padding: 0.5em 0.8em;
 
     &:disabled {
-      background: #ccc;
-      color: #999;
+      background: $button-disabled-bg;
+      color: $button-disabled-text;
     }
   }
 
