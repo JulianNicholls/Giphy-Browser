@@ -3,15 +3,9 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Trending from './components/Trending';
 import Random from './components/Random';
+import SearchResults from './components/SearchResults';
 
 import './styles/App.scss';
-
-const SearchResults = ({ searchText }) => (
-  <div>
-    <h1>Search Results</h1>
-    <h3>Search: {searchText}</h3>
-  </div>
-);
 
 const App = () => {
   const [page, setPage] = useState('trending');
@@ -31,11 +25,11 @@ const App = () => {
         chooseTrending={chooseTrending}
         search={search}
       />
-      <div className="container">
+      <main className="container">
         {page === 'trending' && <Trending />}
         {page === 'random' && <Random />}
         {page === 'searchResults' && <SearchResults searchText={searchText} />}
-      </div>
+      </main>
     </div>
   );
 };
