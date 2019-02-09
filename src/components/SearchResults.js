@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import GifList from './GifList';
 
 import { API_KEY } from '../api';
 
-const Trending = () => {
+const SearchResults = ({ searchText }) => {
   const [gifs, setGifs] = useState({});
 
-  const loadTrending = async () => {
+  const loadResults = async () => {
     try {
       const response = await fetch(
-        `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&rating=R&limit=32`
+        `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=${API_KEY}&rating=R&limit=32`
       );
       const json = await response.json();
 
@@ -20,19 +21,23 @@ const Trending = () => {
     }
   };
 
-  // A useEffect() function cannot be an async function, so the async function
-  // must be elsewhere and called with () => { ... }.
   useEffect(() => {
-    loadTrending();
-  }, []);
+    loadResults();
+  }, [searchText]);
 
   return (
-    <div className="trending">
-      <h1>Trending GIFs</h1>
+    <div>
+      <h1>
+        Search Results: <small>{searchText}</small>
+      </h1>
 
       {!gifs.data ? <h2>Loading...</h2> : <GifList gifs={gifs.data} />}
     </div>
   );
 };
 
-export default Trending;
+SearchResults.propTypes = {
+  searchtext: PropTypes.string.isRequired,
+};
+
+export default SearchResults;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
+
 *,
 *::before,
 *::after {
@@ -7,9 +9,7 @@
 body {
   background: #eee;
   color: #444;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Raleway, sans-serif;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -32,9 +32,18 @@ button {
   padding: 0.3em;
 }
 
+h1 {
+  font-size: 2rem;
+  text-align: center;
+
+  small {
+    font-size: 1.6rem;
+  }
+}
+
 header {
   align-items: center;
-  background: #555;
+  background: #444;
   color: #ddd;
   display: flex;
   height: 4rem;  
@@ -56,14 +65,15 @@ header {
 
     &:hover {
       color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
   }
 }
 
-.trending-list {
+.gif-list {
   display: grid;
   grid-gap: 0.25rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   img {
     width: 100%;
@@ -76,16 +86,28 @@ header {
     margin: 1em auto;
   }
 
+  .gif-holder {
+    min-height: 72vh;
+  }
+
   .button-holder {
+    background: #ddd;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 1em;
+    margin: 1em 0 0 0;
+    padding: 0.5em 1em;
   }
 
   button {
     background: #333;
     color: #eee;
     display: block;
-    padding: 0.5em;
+    padding: 0.5em 0.8em;
+
+    &:disabled {
+      background: #ccc;
+      color: #999;
+    }
   }
+
 }
