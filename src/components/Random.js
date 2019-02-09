@@ -1,66 +1,58 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
 import { API_KEY } from '../api';
 
-export class Random extends Component {
-  state = {
-    gif: {},
-    showHandle: null,
-  };
+const Random = () => {
+  const [gif, setGif] = useState({});
+  const [handle, setHandle] = useState(0);
 
-  componentDidMount() {
-    this.loadRandom();
-  }
+  // This must be called when handle changes, so that the cleanup knows the
+  // updated state of the slideshow handle and not just its initial value.
+  useEffect(() => {
+    loadRandom();
 
-  componentWillUnmount() {
-    const { showHandle } = this.state;
+    return () => {
+      if (handle) clearInterval(handle);
+    };
+  }, [handle]);
 
-    if (showHandle) clearInterval(showHandle);
-  }
-
-  async loadRandom() {
+  const loadRandom = async () => {
     try {
       const response = await fetch(
         `http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&rating=r`
       );
       const json = await response.json();
 
-      this.setState({ gif: json });
+      setGif(json);
     } catch (err) {
       console.error(err);
     }
-  }
-
-  slideshow = () => {
-    this.loadRandom();
-
-    const showHandle = setInterval(() => this.loadRandom(), 5000);
-
-    this.setState({ showHandle });
   };
 
-  render() {
-    const { gif } = this.state;
+  const slideshow = () => {
+    const showHandle = setInterval(loadRandom, 5000);
 
-    const image = gif.data;
+    setHandle(showHandle);
+  };
 
-    return (
-      <div className="random">
-        <h1>Random GIF</h1>
-        {!image ? (
-          <h2>Loading...</h2>
-        ) : (
-          <Fragment>
-            <img src={image.images.original.url} alt={image.title} />
-            <div className="button-holder">
-              <button onClick={() => this.loadRandom()}>Another!</button>
-              <button onClick={() => this.slideshow()}>Slide show</button>
-            </div>
-          </Fragment>
-        )}
-      </div>
-    );
-  }
-}
+  const image = gif.data;
+
+  return (
+    <div className="random">
+      <h1>Random GIF</h1>
+      {!image ? (
+        <h2>Loading...</h2>
+      ) : (
+        <Fragment>
+          <img src={image.images.original.url} alt={image.title} />
+          <div className="button-holder">
+            <button onClick={loadRandom}>Another!</button>
+            <button onClick={slideshow}>Slide show</button>
+          </div>
+        </Fragment>
+      )}
+    </div>
+  );
+};
 
 export default Random;
