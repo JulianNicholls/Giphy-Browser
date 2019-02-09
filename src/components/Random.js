@@ -39,15 +39,18 @@ const Random = () => {
 
   return (
     <div className="random">
-      <h1>Random GIF</h1>
       {!image ? (
         <h2>Loading...</h2>
       ) : (
         <Fragment>
-          <img src={image.images.original.url} alt={image.title} />
+          <div className="gif-holder">
+            <img src={image.images.original.url} alt={image.title} />
+          </div>
           <div className="button-holder">
             <button onClick={loadRandom}>Another!</button>
-            <button onClick={slideshow}>Slide show</button>
+            <button disabled={handle !== 0} onClick={slideshow}>
+              Slide show
+            </button>
           </div>
         </Fragment>
       )}
