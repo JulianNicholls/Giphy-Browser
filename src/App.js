@@ -10,13 +10,15 @@ import './styles/App.scss';
 const App = () => {
   const [page, setPage] = useState('trending');
   const [searchText, setSearchText] = useState('');
+  const [resultCount, setResultCount] = useState(24);
 
   const chooseRandom = () => setPage('random');
   const chooseTrending = () => setPage('trending');
   const search = searchText => {
     setSearchText(searchText);
-    setPage('searchResults');
+    if (searchText !== '') setPage('searchResults');
   };
+  const setSearchResultCount = count => setResultCount(count);
 
   return (
     <div>
@@ -24,11 +26,15 @@ const App = () => {
         chooseRandom={chooseRandom}
         chooseTrending={chooseTrending}
         search={search}
+        resultCount={resultCount}
+        setResultCount={setSearchResultCount}
       />
       <main className="container">
         {page === 'trending' && <Trending />}
         {page === 'random' && <Random />}
-        {page === 'searchResults' && <SearchResults searchText={searchText} />}
+        {page === 'searchResults' && (
+          <SearchResults searchText={searchText} resultCount={resultCount} />
+        )}
       </main>
     </div>
   );

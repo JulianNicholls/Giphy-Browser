@@ -5,13 +5,13 @@ import GifList from './GifList';
 
 import { API_KEY } from '../api';
 
-const SearchResults = ({ searchText }) => {
+const SearchResults = ({ searchText, resultCount }) => {
   const [gifs, setGifs] = useState({});
 
   const loadResults = async () => {
     try {
       const response = await fetch(
-        `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=${API_KEY}&rating=R&limit=32`
+        `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=${API_KEY}&rating=R&limit=${resultCount}`
       );
       const json = await response.json();
 
@@ -23,7 +23,7 @@ const SearchResults = ({ searchText }) => {
 
   useEffect(() => {
     loadResults();
-  }, [searchText]);
+  }, [searchText, resultCount]);
 
   return (
     <div>
@@ -37,7 +37,8 @@ const SearchResults = ({ searchText }) => {
 };
 
 SearchResults.propTypes = {
-  searchtext: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
+  resultCount: PropTypes.number.isRequired,
 };
 
 export default SearchResults;

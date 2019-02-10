@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Header = ({ chooseTrending, chooseRandom, search }) => {
+const Header = ({
+  resultCount,
+  chooseTrending,
+  chooseRandom,
+  search,
+  setResultCount,
+}) => {
   const [searchText, setSearchText] = useState('');
 
   return (
@@ -32,6 +38,13 @@ const Header = ({ chooseTrending, chooseRandom, search }) => {
           }}
         />
         &nbsp;
+        <select onChange={evt => setResultCount(Number(evt.target.value))}>
+          <option value="24">24</option>
+          <option value="48">48</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select>
+        &nbsp;
         <button className="search" onClick={() => search(searchText)}>
           Search
         </button>
@@ -41,9 +54,11 @@ const Header = ({ chooseTrending, chooseRandom, search }) => {
 };
 
 Header.propTypes = {
+  resultCount: PropTypes.number.isRequired,
   chooseTrending: PropTypes.func.isRequired,
   chooseRandom: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
+  setResultCount: PropTypes.func.isRequired,
 };
 
 export default Header;
