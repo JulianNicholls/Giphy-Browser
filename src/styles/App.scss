@@ -2,6 +2,7 @@
 
 $body-bg: #eee;
 $body-text: #333;
+$small-text: #555;
 
 $header-bg: #444;
 $header-text: #ddd;
@@ -37,7 +38,7 @@ body {
   padding: 1em;
 }
 
-input {
+input, select {
   font-size: 1rem;
   padding: 0.3em 0.5em;
 }
@@ -52,7 +53,8 @@ h1 {
   text-align: center;
 
   small {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+    color: $small-text;
   }
 }
 
