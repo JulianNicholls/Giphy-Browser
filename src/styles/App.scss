@@ -26,14 +26,14 @@ body {
   background: $body-bg;
   color: $body-text;
   font-family: Raleway, sans-serif;
-  margin: 0;
+  margin: 60px 0 0 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1em;
 }
@@ -65,6 +65,9 @@ header {
   display: flex;
   height: 4rem;  
   padding: 0 1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   #product {
     color: $header-product;
