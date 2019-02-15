@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Staatliches:400,700');
 
-$body-bg: #eee;
-$body-text: #333;
-$small-text: #555;
+$body-bg: #eef;
+$body-text: #111;
+$small-text: #333;
 
-$header-bg: #444;
-$header-text: #ddd;
-$header-product: #fff;
-$header-hover: #fff;
+$header-bg: #0e6171;
+$header-text: #d2f9df;
+$header-product: #d2f3f9;
+$header-hover: #d2f7bf;
 
 $button-holder-bg: #ddd;
-$button-bg: #333;
-$button-text: #eee;
+$button-bg: $header-bg;
+$button-text: $header-text;
 $button-disabled-bg: #ccc;
 $button-disabled-text: #999;
 
@@ -25,17 +26,16 @@ $button-disabled-text: #999;
 body {
   background: $body-bg;
   color: $body-text;
-  font-family: Raleway, sans-serif;
+  font-family: Poppins, sans-serif;
   margin: 60px 0 0 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Staatliches', cursive;
+  margin-top: 0;
 }
 
 input, select {
@@ -46,12 +46,17 @@ input, select {
 button {
   font-size: 1rem;
   padding: 0.3em;
+  
+  &:disabled {
+    background: $button-disabled-bg;
+    color: $button-disabled-text;
+  }
 }
 
 h1 {
   font-size: 2rem;
   text-align: center;
-
+  
   small {
     font-size: 1.9rem;
     color: $small-text;
@@ -68,33 +73,39 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-
+  
   #product {
     color: $header-product;
     flex: 1;
     font-size: 1.4rem;
   }
-
+  
   .img-span {
     flex: 4;
   }
-
+  
   .section {
     cursor: pointer;
     flex: 1;
-
+    
     &:hover {
       color: $header-hover;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
   }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 .gif-list {
   display: grid;
   grid-gap: 0.25rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
+  
   img {
     width: 100%;
   }
@@ -105,29 +116,24 @@ header {
     display: block;
     margin: 1em auto;
   }
-
+  
   .gif-holder {
     min-height: 72vh;
   }
-
+  
   .button-holder {
     background: $button-holder-bg;
     display: flex;
     justify-content: space-evenly;
     margin: 1em 0 0 0;
-    padding: 0.5em 1em;
+    padding: 0.75em 1em;
   }
-
-  button {
+  
+  button { 
     background: $button-bg;
     color: $button-text;
     display: block;
-    padding: 0.5em 0.8em;
-
-    &:disabled {
-      background: $button-disabled-bg;
-      color: $button-disabled-text;
-    }
+    padding: 0.5em 0.8em; 
   }
-
+  
 }
