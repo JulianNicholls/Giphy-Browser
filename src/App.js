@@ -26,7 +26,6 @@ const App = () => {
         chooseRandom={chooseRandom}
         chooseTrending={chooseTrending}
         search={search}
-        resultCount={resultCount}
         setResultCount={setSearchResultCount}
       />
       <main className="container">

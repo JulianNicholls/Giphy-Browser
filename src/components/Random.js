@@ -7,7 +7,7 @@ const Random = () => {
   const [handle, setHandle] = useState(0);
 
   // This must be called when handle changes, so that the cleanup knows the
-  // updated state of the slideshow handle and not just its initial value.
+  // updated state of the slideshow handle and not just its initial value of 0.
   useEffect(() => {
     loadRandom();
 
@@ -19,7 +19,7 @@ const Random = () => {
   const loadRandom = async () => {
     try {
       const response = await fetch(
-        `http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&rating=r`
+        `http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&rating=R`
       );
       const json = await response.json();
 

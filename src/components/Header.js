@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Header = ({
-  resultCount,
   chooseTrending,
   chooseRandom,
   search,
@@ -54,7 +53,6 @@ const Header = ({
 };
 
 Header.propTypes = {
-  resultCount: PropTypes.number.isRequired,
   chooseTrending: PropTypes.func.isRequired,
   chooseRandom: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
