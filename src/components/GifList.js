@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import DeferredImage from './DeferredImage';
+
 function GifList({ gifs }) {
   return (
     <div className="gif-list">
       {gifs.map(image => (
         <a href={image.images.original.url} key={image.id}>
-          <img src={image.images.fixed_width.url} alt={image.title} />
+          <DeferredImage image={image} />
         </a>
       ))}
     </div>
