@@ -10,7 +10,7 @@ $header-text: #d2f9df;
 $header-product: #d2f3f9;
 $header-hover: #d2f7bf;
 
-$button-holder-bg: #ddd;
+$button-holder-bg: #d8d8e0;
 $button-bg: $header-bg;
 $button-text: $header-text;
 $button-disabled-bg: #ccc;
@@ -45,6 +45,7 @@ input, select {
 }
 
 button {
+  border-radius: 3px;
   font-size: 1rem;
   padding: 0.3em;
   
@@ -99,7 +100,7 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 1rem;
 }
 
 .gif-list {
@@ -142,5 +143,4 @@ header {
     display: block;
     padding: 0.5em 0.8em; 
   }
-  
 }
