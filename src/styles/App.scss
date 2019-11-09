@@ -27,7 +27,7 @@ body {
   background: $body-bg;
   color: $body-text;
   font-family: Poppins, sans-serif;
-  margin: 60px 0 0 0;
+  margin: 3rem 0 0 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,7 +48,7 @@ button {
   border-radius: 3px;
   font-size: 1rem;
   padding: 0.3em;
-  
+
   &:disabled {
     background: $button-disabled-bg;
     color: $button-disabled-text;
@@ -58,7 +58,7 @@ button {
 h1 {
   font-size: 2rem;
   text-align: center;
-  
+
   small {
     font-size: 1.9rem;
     color: $small-text;
@@ -70,26 +70,26 @@ header {
   background: $header-bg;
   color: $header-text;
   display: flex;
-  height: 4rem;  
+  height: 3rem;
   padding: 0 1em;
   position: fixed;
   top: 0;
   width: 100%;
-  
+
   #product {
     color: $header-product;
     flex: 1;
     font-size: 1.4rem;
   }
-  
+
   .img-span {
     flex: 4;
   }
-  
+
   .section {
     cursor: pointer;
     flex: 1;
-    
+
     &:hover {
       color: $header-hover;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -107,7 +107,7 @@ header {
   display: grid;
   grid-gap: 0.25rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  
+
   img {
     width: 100%;
   }
@@ -124,11 +124,11 @@ header {
     display: block;
     margin: 1em auto 0 auto;
   }
-  
+
   .gif-holder {
     min-height: 72vh;
   }
-  
+
   .button-holder {
     background: $button-holder-bg;
     display: flex;
@@ -136,11 +136,11 @@ header {
     margin: 1em 0 0 0;
     padding: 0.75em 1em;
   }
-  
-  button { 
+
+  button {
     background: $button-bg;
     color: $button-text;
     display: block;
-    padding: 0.5em 0.8em; 
+    padding: 0.5em 0.8em;
   }
 }
