@@ -7,7 +7,12 @@ function GifList({ gifs }) {
   return (
     <div className="gif-list">
       {gifs.map(image => (
-        <a href={image.images.original.url} key={image.id}>
+        <a
+          href={image.images.original.url}
+          key={image.id}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DeferredImage image={image} />
         </a>
       ))}
