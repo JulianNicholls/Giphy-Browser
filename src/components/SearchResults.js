@@ -8,20 +8,20 @@ import { API_KEY } from '../api';
 const SearchResults = ({ searchText, resultCount }) => {
   const [gifs, setGifs] = useState({});
 
-  const loadResults = async () => {
-    try {
-      const response = await fetch(
-        `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=${API_KEY}&rating=R&limit=${resultCount}`
-      );
-      const json = await response.json();
-
-      setGifs(json);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   useEffect(() => {
+    const loadResults = async () => {
+      try {
+        const response = await fetch(
+          `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=${API_KEY}&rating=R&limit=${resultCount}`
+        );
+        const json = await response.json();
+
+        setGifs(json);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
     loadResults();
   }, [searchText, resultCount]);
 

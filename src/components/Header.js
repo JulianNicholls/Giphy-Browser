@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Header = ({
-  chooseTrending,
-  chooseRandom,
-  search,
-  setResultCount,
-}) => {
+const Header = ({ chooseTrending, chooseRandom, search, setResultCount }) => {
   const [searchText, setSearchText] = useState('');
 
   return (

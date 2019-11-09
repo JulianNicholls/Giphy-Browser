@@ -15,17 +15,17 @@ const Random = () => {
   }, []);
 
   const loadRandom = async () => {
-     try {
-       const response = await fetch(
-         `http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&rating=R`
-       );
-       const json = await response.json();
- 
-       setGif(json);
-     } catch (err) {
-       console.error(err);
-     }
-   };
+    try {
+      const response = await fetch(
+        `http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&rating=R`
+      );
+      const json = await response.json();
+
+      setGif(json);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const slideshow = () => {
     handle.current = setInterval(loadRandom, 5000);

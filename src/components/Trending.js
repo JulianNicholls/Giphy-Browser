@@ -7,22 +7,22 @@ import { API_KEY } from '../api';
 const Trending = () => {
   const [gifs, setGifs] = useState({});
 
-  const loadTrending = async () => {
-    try {
-      const response = await fetch(
-        `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&rating=R&limit=32`
-      );
-      const json = await response.json();
-
-      setGifs(json);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   // A useEffect() function cannot be an async function, so the async function
   // must be elsewhere and called with () => { ... }.
   useEffect(() => {
+    const loadTrending = async () => {
+      try {
+        const response = await fetch(
+          `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&rating=R&limit=32`
+        );
+        const json = await response.json();
+
+        setGifs(json);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
     loadTrending();
   }, []);
 
