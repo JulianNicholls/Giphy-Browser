@@ -8,6 +8,7 @@ function GifList({ gifs }) {
     <div className="gif-list">
       {gifs.map(image => (
         <a
+          className="gif-link"
           href={image.images.original.url}
           key={image.id}
           target="_blank"

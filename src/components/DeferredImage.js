@@ -6,8 +6,21 @@ import { InView } from 'react-intersection-observer';
 function DeferredImage({ image }) {
   const [loaded, setLoaded] = useState(false);
 
+  const setSpan = (inView, entry) => {
+    console.log({ inView, entry });
+
+    entry.target.addEventListener('load', () => {
+      const img = entry.target;
+      const height = img.clientHeight;
+      const span = Math.ceil(height / 10 + 1);
+
+      console.log({ height, span });
+      img.parentNode.style.gridRowEnd = `span ${span}`;
+    });
+  };
+
   return (
-    <InView>
+    <InView onChange={setSpan}>
       {({ inView, ref }) => {
         if (loaded || inView) {
           setLoaded(true);
@@ -17,7 +30,7 @@ function DeferredImage({ image }) {
           );
         }
 
-        return <div className="lazy" ref={ref} />;
+        return <div className="lazy" ref={ref} alt="" />;
       }}
     </InView>
   );

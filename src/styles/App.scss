@@ -105,8 +105,13 @@ header {
 
 .gif-list {
   display: grid;
-  grid-gap: 0.25rem;
+  grid-gap: 0 0.6rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 10px;
+
+  .gif-link {
+    grid-row-end: span 21;
+  }
 
   img {
     width: 100%;
